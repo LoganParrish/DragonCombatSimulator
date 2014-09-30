@@ -263,207 +263,207 @@ You will take 5 damage every turn for each time she stabs you!");
                 }                 
             }            
         }
-//        static void DragonCombatSimLevel2()
-//        {
+        static void DragonCombatSimLevel2()
+        {
 
-//            MavisFighter();
-            
-
-//            Console.WriteLine(@"You start to walk away when out of the corner of your eye, you see a movement. Mavis is getting up. 
-//She reaches into her purse and pulls out two small red pills. Oh no. It's her arthritis medication. She tosses them into her mouth and you can 
-//see the fire build in her eyes. She's rearing for battle. She flexes once her shirt explodes from her body leaving only very dangly old woman parts. 
-//Gross. You almost have half a mind to run away at the thought of her getting close to you with her swinging pendulums of death and wrinkles hanging from her chest, 
-//but you decide against it.
-//
-//Let's do this, I guess.
-//
-//Mavis is 2.5x stronger than before, you can take 2 extra Vicodin, have 3 extra Loofahs, a bit of extra health, and you have an increased chance at landing a critical hit. 
-//
-//Good luck.
-//");
-//            Console.ReadKey();
-//            Console.Clear();
-//            Random rng = new Random();
-
-//            //your life
-//            int playerHP = 160;
-//            //enemy life
-//            int enemyHP = 450;
-//            //how many loofahs you can throw
-//            int loofaCount = 6;
-//            //if healCount ever hits 6, you overdose.
-//            int healCount = 0;
-//            //She stabs you with her insulin needle and you take 5 damage every turn. (everytime she stabs you. so if she stabs you twice, 10 damage)
-//            int insulinPoison = 0;
-//            //to keep the while loop running for the first gamemode.
-//            bool won = false;
-
-//            int accuracyMain = 70;
+            MavisFighter();
 
 
+            Console.WriteLine(@"You start to walk away when out of the corner of your eye, you see a movement. Mavis is getting up. 
+She reaches into her purse and pulls out two small red pills. Oh no. It's her arthritis medication. She tosses them into her mouth and you can 
+see the fire build in her eyes. She's rearing for battle. She flexes once her shirt explodes from her body leaving only very dangly old woman parts. 
+Gross. You almost have half a mind to run away at the thought of her getting close to you with her swinging pendulums of death and wrinkles hanging from her chest, 
+but you decide against it.
 
+Let's do this, I guess.
 
-//            while (!won)
-//            {
+Mavis is 2.5x stronger than before, you can take 2 extra Vicodin, have 3 extra Loofahs, a bit of extra health, and you have an increased chance at landing a critical hit. 
 
-//                //Conditional stuff that only happens if other stuff happens like poison that has to go before death stuff
-//                playerHP = playerHP - insulinPoison;
+Good luck.
+");
+            Console.ReadKey();
+            Console.Clear();
+            Random rng = new Random();
 
+            //your life
+            int playerHP = 160;
+            //enemy life
+            int enemyHP = 450;
+            //how many loofahs you can throw
+            int loofaCount = 6;
+            //if healCount ever hits 6, you overdose.
+            int healCount = 0;
+            //She stabs you with her insulin needle and you take 5 damage every turn. (everytime she stabs you. so if she stabs you twice, 10 damage)
+            int insulinPoison = 0;
+            //to keep the while loop running for the first gamemode.
+            bool won = false;
 
-//                //conditions for losing / winning
-//                if (playerHP <= 0 && enemyHP <= 0)
-//                {
-//                    Console.Clear();
-//                    Console.WriteLine(@"Somehow you managed to kill eachother. Smooth move. Your bodies lay lifeless next to eachother. Better luck next time,
-//starting at Level 1." + "\n\n\n\n\n\n");
-//                    GameOver();
-//                    won = true;
-//                    break;
-//                }
-//                if (healCount > 5)
-//                {
-//                    Console.Clear();
-//                    Console.WriteLine(@"You take too much Vicodin and OD like a dip.Better luck next time,
-//starting at Level 1." + "\n\n\n\n\n\n" + "\n\n\n\n\n\n");
-//                    Console.WriteLine("\n\n\n");
-//                    GameOver();
-//                    won = true;
-//                    break;
-//                }
-//                if (playerHP <= 0)
-//                {
-//                    Console.Clear();
-//                    Console.WriteLine("Oh dear, you're dead! \n\n\n");
-//                    Console.WriteLine(@"Mavis takes back all of her drugs and picks up the scattered loofahs. She removes one of the tennis balls from her walker and shoves
-//it into your lifeless mouth. Better luck next time, starting at Level 1." + "\n\n\n\n\n\n");
-//                    Console.WriteLine("\n\n\n");
-//                    GameOver();
-//                    won = true;
-//                    break;
-//                }
-//                if (enemyHP <= 0)
-//                {
-//                    Console.Clear();
-//                    Jesus();
-//                    Console.WriteLine("\n\n");
-//                    Console.WriteLine("You defeated Mavis MK.2! Congratulations!... until her husband comes after you." + "\n\n\n\n\n\n");
-//                    Console.WriteLine("\n\n\n");
-//                    ThanksForPlaying();
-//                    won = true;
-//                    break;
-//                }
+            int accuracyMain = 70;
 
 
 
 
+            while (!won)
+            {
 
-//                Console.WriteLine("\n\n\n\n\n____________________________________________________________________________________________");
-//                Console.WriteLine("Health Meter : " + playerHP + " / 160" + "                                          " + "Boss Health : " + enemyHP + " / 450");
-//                Console.WriteLine("                             Current mainhand accuracy : " + accuracyMain + "%");
-//                Console.WriteLine("                                  Loofahs remaining : " + loofaCount);
-//                //handy conditional counter if you're poisoned
-//                if (insulinPoison > 0)
-//                {
-//                    Console.WriteLine("              \n               ================ Poison Damage Per Turn: " + insulinPoison + "================");
-//                }
-
-//                Console.WriteLine("\n\n\nPress 1 to spank Mavis, 2 to throw a loofah at her, and 3 to get drugged up to heal yourself.");
-
-//                int enemyAttack = rng.Next(10, 60);
-
-//                string attack = Console.ReadLine();
-
-//                int trueAttack = int.Parse(attack);
+                //Conditional stuff that only happens if other stuff happens like poison that has to go before death stuff
+                playerHP = playerHP - insulinPoison;
 
 
-//                if (trueAttack == 1 && rng.Next(0, 11) == 10)
-//                {
-//                    Console.Clear();
-//                    int attack1 = rng.Next(20, 36) * 2;
-//                    Console.WriteLine("You landed a *CRIT* and dealt " + attack1 + " damage!!!");
-//                    enemyHP = enemyHP - attack1;
-                    
-//                }
-//                else if (trueAttack == 1 && rng.Next(0, 11) == 10 || rng.Next(0, 11) == 5)
-//                {
-//                    Console.Clear();
-//                    int attack1 = Convert.ToInt32(rng.Next(20, 36) * 1.2);
-//                    Console.WriteLine("You landed a *MINI CRIT* and dealt " + attack1 + " damage!!!");
-//                    enemyHP = enemyHP - attack1;
-//                }
-//                else if (trueAttack == 1)
-//                {
-//                    if (rng.Next(0, 101) <= accuracyMain)
-//                    {
-//                        int attack1 = rng.Next(20, 36);
-//                        Console.Clear();
-//                        Console.WriteLine("You hit Mavis square on the butt and deal " + attack1 + " damage.");
-//                        enemyHP = enemyHP - attack1;
-//                    }
-//                    else
-//                    {
-//                        Console.Clear();
-//                        Console.WriteLine("You prove your father right, and fail. You missed.");
-//                    }
-//                }
-//                if (trueAttack == 2 && loofaCount > 0)
-//                {
-//                    int attack2 = rng.Next(1, 41);
+                //conditions for losing / winning
+                if (playerHP <= 0 && enemyHP <= 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine(@"Somehow you managed to kill eachother. Smooth move. Your bodies lay lifeless next to eachother. Better luck next time,
+starting at Level 1." + "\n\n\n\n\n\n");
+                    GameOver();
+                    won = true;
+                    break;
+                }
+                if (healCount > 5)
+                {
+                    Console.Clear();
+                    Console.WriteLine(@"You take too much Vicodin and OD like a dip.Better luck next time,
+starting at Level 1." + "\n\n\n\n\n\n" + "\n\n\n\n\n\n");
+                    Console.WriteLine("\n\n\n");
+                    GameOver();
+                    won = true;
+                    break;
+                }
+                if (playerHP <= 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Oh dear, you're dead! \n\n\n");
+                    Console.WriteLine(@"Mavis takes back all of her drugs and picks up the scattered loofahs. She removes one of the tennis balls from her walker and shoves
+it into your lifeless mouth. Better luck next time, starting at Level 1." + "\n\n\n\n\n\n");
+                    Console.WriteLine("\n\n\n");
+                    GameOver();
+                    won = true;
+                    break;
+                }
+                if (enemyHP <= 0)
+                {
+                    Console.Clear();
+                    Jesus();
+                    Console.WriteLine("\n\n");
+                    Console.WriteLine("You defeated Mavis MK.2! Congratulations!... until her husband comes after you." + "\n\n\n\n\n\n");
+                    Console.WriteLine("\n\n\n");
+                    ThanksForPlaying();
+                    won = true;
+                    break;
+                }
 
-//                    Console.Clear();
 
-//                    loofaCount--;
-//                    Console.WriteLine("You pelt Mavis with a loofah and deal " + attack2 + " damage.");
-//                    enemyHP = enemyHP - attack2;
-//                }
-//                else if (trueAttack == 2 && loofaCount == 0)
-//                {
-//                    Console.Clear();
-//                    Console.WriteLine("You tried throwing a loofah you didn't have and Mavis gets a free shot!");
-//                }
-//                if (trueAttack == 3 && rng.Next(0, 16) == 15)
-//                {
-//                    Console.Clear();
-//                    Console.WriteLine(@"The pill you take was actually freebase cocaine smuggled in by the Mexican Drug Cartel!
-//You gain an immediate 100 health boost and gain immunity to an extra pill.");
-//                    playerHP = playerHP + 100;
-//                    healCount--;
-//                }
-//                else if (trueAttack == 3)
-//                {
-//                    Console.Clear();
-//                    healCount++;
-//                    int attack3 = rng.Next(10, 41);
-//                    playerHP = playerHP + attack3;
-//                    Console.WriteLine("You pop some pills and heal yourself for " + attack3 + " health... careful not to OD.");
-//                }
-//                if (trueAttack != 1 && trueAttack != 2 && trueAttack != 3)
-//                {
-//                    Console.Clear();
-//                    Console.WriteLine("You try using something you don't even have, dumb ass. Mavis gets a free shot.");
-//                }
-//                if (rng.Next(0, 15) == 1)
-//                {
-//                    Console.WriteLine("Mavis makes a move on you, trying to feel you up with her pruny hands. Your accuracy is lowered by 10%.");
-//                    accuracyMain = accuracyMain - 10;
-//                }
-//                else if (rng.Next(1, 16) == 15)
-//                {
-//                    Console.WriteLine(@"Instead of hitting you, Mavis stabs you with her insulin needle. 
-//You will take 5 damage every turn for each time she stabs you!");
-//                    insulinPoison = insulinPoison + 5;
-//                }
-//                else if (rng.Next(0, 101) < 80)
-//                {
-//                    playerHP = playerHP - enemyAttack;
-//                    Console.WriteLine("Mavis hits you for " + enemyAttack + " damage. She hits like a girl.");
-//                }
-//                else
-//                {
-//                    Console.WriteLine("Mavis' cataracts sets in, and she misses you.");
-//                }
-//            }
-//        }
+
+
+
+                Console.WriteLine("\n\n\n\n\n____________________________________________________________________________________________");
+                Console.WriteLine("Health Meter : " + playerHP + " / 160" + "                                          " + "Boss Health : " + enemyHP + " / 450");
+                Console.WriteLine("                             Current mainhand accuracy : " + accuracyMain + "%");
+                Console.WriteLine("                                  Loofahs remaining : " + loofaCount);
+                //handy conditional counter if you're poisoned
+                if (insulinPoison > 0)
+                {
+                    Console.WriteLine("              \n               ================ Poison Damage Per Turn: " + insulinPoison + "================");
+                }
+
+                Console.WriteLine("\n\n\nPress 1 to spank Mavis, 2 to throw a loofah at her, and 3 to get drugged up to heal yourself.");
+
+                int enemyAttack = rng.Next(10, 60);
+
+                string attack = Console.ReadLine();
+
+                int trueAttack = int.Parse(attack);
+
+
+                if (trueAttack == 1 && rng.Next(0, 11) == 10)
+                {
+                    Console.Clear();
+                    int attack1 = rng.Next(20, 36) * 2;
+                    Console.WriteLine("You landed a *CRIT* and dealt " + attack1 + " damage!!!");
+                    enemyHP = enemyHP - attack1;
+
+                }
+                else if (trueAttack == 1 && rng.Next(0, 11) == 10 || rng.Next(0, 11) == 5)
+                {
+                    Console.Clear();
+                    int attack1 = Convert.ToInt32(rng.Next(20, 36) * 1.2);
+                    Console.WriteLine("You landed a *MINI CRIT* and dealt " + attack1 + " damage!!!");
+                    enemyHP = enemyHP - attack1;
+                }
+                else if (trueAttack == 1)
+                {
+                    if (rng.Next(0, 101) <= accuracyMain)
+                    {
+                        int attack1 = rng.Next(20, 36);
+                        Console.Clear();
+                        Console.WriteLine("You hit Mavis square on the butt and deal " + attack1 + " damage.");
+                        enemyHP = enemyHP - attack1;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("You prove your father right, and fail. You missed.");
+                    }
+                }
+                if (trueAttack == 2 && loofaCount > 0)
+                {
+                    int attack2 = rng.Next(1, 41);
+
+                    Console.Clear();
+
+                    loofaCount--;
+                    Console.WriteLine("You pelt Mavis with a loofah and deal " + attack2 + " damage.");
+                    enemyHP = enemyHP - attack2;
+                }
+                else if (trueAttack == 2 && loofaCount == 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine("You tried throwing a loofah you didn't have and Mavis gets a free shot!");
+                }
+                if (trueAttack == 3 && rng.Next(0, 16) == 15)
+                {
+                    Console.Clear();
+                    Console.WriteLine(@"The pill you take was actually freebase cocaine smuggled in by the Mexican Drug Cartel!
+You gain an immediate 100 health boost and gain immunity to an extra pill.");
+                    playerHP = playerHP + 100;
+                    healCount--;
+                }
+                else if (trueAttack == 3)
+                {
+                    Console.Clear();
+                    healCount++;
+                    int attack3 = rng.Next(10, 41);
+                    playerHP = playerHP + attack3;
+                    Console.WriteLine("You pop some pills and heal yourself for " + attack3 + " health... careful not to OD.");
+                }
+                if (trueAttack != 1 && trueAttack != 2 && trueAttack != 3)
+                {
+                    Console.Clear();
+                    Console.WriteLine("You try using something you don't even have, dumb ass. Mavis gets a free shot.");
+                }
+                if (rng.Next(0, 15) == 1)
+                {
+                    Console.WriteLine("Mavis makes a move on you, trying to feel you up with her pruny hands. Your accuracy is lowered by 10%.");
+                    accuracyMain = accuracyMain - 10;
+                }
+                else if (rng.Next(1, 16) == 15)
+                {
+                    Console.WriteLine(@"Instead of hitting you, Mavis stabs you with her insulin needle. 
+You will take 5 damage every turn for each time she stabs you!");
+                    insulinPoison = insulinPoison + 5;
+                }
+                else if (rng.Next(0, 101) < 80)
+                {
+                    playerHP = playerHP - enemyAttack;
+                    Console.WriteLine("Mavis hits you for " + enemyAttack + " damage. She hits like a girl.");
+                }
+                else
+                {
+                    Console.WriteLine("Mavis' cataracts sets in, and she misses you.");
+                }
+            }
+        }
         static void ThanksForPlaying()
         {
             Console.WriteLine(@" _____ _                 _           __                   _             _             _ 
@@ -539,11 +539,11 @@ You will take 5 damage every turn for each time she stabs you!");
             Console.WriteLine("Add your name to display how many times you spanked Mavis to the highscores: ");
             string playerName = Console.ReadLine();
 
-            LoganEntities db = new LoganEntities();
+            LoganEntities1 db = new LoganEntities1();
 
             HighScore newHighScore = new HighScore();
 
-            newHighScore.Date = DateTime.Now;
+            newHighScore.DateCreated = DateTime.Now;
             newHighScore.Name = playerName;
             newHighScore.Game = "GrannyFighter2K14";
             newHighScore.Score = playerScore;
@@ -559,13 +559,13 @@ You will take 5 damage every turn for each time she stabs you!");
             Console.WriteLine("=====================================================\n\n");
             Console.ResetColor();
 
-            LoganEntities db = new LoganEntities();
+            LoganEntities1 db = new LoganEntities1();
             List<HighScore> highScoreList = db.HighScores.Where(x => x.Game == "GrannyFighter2K14").OrderByDescending(x => x.Score).Take(10).ToList();
 
             foreach (HighScore highScore in highScoreList)
             {
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("{0}. {1} - Only {2} spanks to put that lady in her place - {3}", highScoreList.IndexOf(highScore) + 1, highScore.Name, highScore.Score, highScore.Date.Value.ToShortDateString());
+                Console.WriteLine("{0}. {1} - Only {2} spanks to put that lady in her place - {3}", highScoreList.IndexOf(highScore) + 1, highScore.Name, highScore.Score, highScore.DateCreated.Value.ToShortDateString());
                 Console.ResetColor();
             }
         }
