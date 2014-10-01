@@ -13,10 +13,10 @@ namespace DragonCombatSimulator
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LoganEntities1 : DbContext
+    public partial class spLoganEntities : DbContext
     {
-        public LoganEntities1()
-            : base("name=LoganEntities1")
+        public spLoganEntities()
+            : base("name=spLoganEntities")
         {
         }
     

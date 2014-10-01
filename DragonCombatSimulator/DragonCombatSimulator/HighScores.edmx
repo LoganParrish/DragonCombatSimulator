@@ -4,9 +4,9 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LoganModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="LoganModelStoreContainer">
-          <EntitySet Name="HighScores" EntityType="LoganModel.Store.HighScores" store:Type="Tables" Schema="dbo" />
+      <Schema Namespace="spLoganModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="spLoganModelStoreContainer">
+          <EntitySet Name="HighScores" EntityType="spLoganModel.Store.HighScores" store:Type="Tables" Schema="spLogan" />
         </EntityContainer>
         <EntityType Name="HighScores">
           <Key>
@@ -15,16 +15,16 @@
           <Property Name="HighScoreID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Score" Type="int" />
-          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateCreated" Type="nvarchar" MaxLength="30" />
           <Property Name="Game" Type="nvarchar" MaxLength="50" />
         </EntityType>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="LoganModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="LoganEntities1" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="HighScores" EntityType="LoganModel.HighScore" />
+      <Schema Namespace="spLoganModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="spLoganEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="HighScores" EntityType="spLoganModel.HighScore" />
         </EntityContainer>
         <EntityType Name="HighScore">
           <Key>
@@ -33,7 +33,7 @@
           <Property Name="HighScoreID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Score" Type="Int32" />
-          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateCreated" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
           <Property Name="Game" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
         </EntityType>
       </Schema>
@@ -41,9 +41,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="LoganModelStoreContainer" CdmEntityContainer="LoganEntities1">
+        <EntityContainerMapping StorageEntityContainer="spLoganModelStoreContainer" CdmEntityContainer="spLoganEntities">
           <EntitySetMapping Name="HighScores">
-            <EntityTypeMapping TypeName="LoganModel.HighScore">
+            <EntityTypeMapping TypeName="spLoganModel.HighScore">
               <MappingFragment StoreEntitySet="HighScores">
                 <ScalarProperty Name="HighScoreID" ColumnName="HighScoreID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

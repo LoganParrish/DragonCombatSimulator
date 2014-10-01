@@ -539,11 +539,11 @@ You will take 5 damage every turn for each time she stabs you!");
             Console.WriteLine("Add your name to display how many times you spanked Mavis to the highscores: ");
             string playerName = Console.ReadLine();
 
-            LoganEntities1 db = new LoganEntities1();
+            spLoganEntities db = new spLoganEntities();
 
             HighScore newHighScore = new HighScore();
 
-            newHighScore.DateCreated = DateTime.Now;
+            newHighScore.DateCreated = DateTime.Now.ToString();
             newHighScore.Name = playerName;
             newHighScore.Game = "GrannyFighter2K14";
             newHighScore.Score = playerScore;
@@ -559,13 +559,13 @@ You will take 5 damage every turn for each time she stabs you!");
             Console.WriteLine("=====================================================\n\n");
             Console.ResetColor();
 
-            LoganEntities1 db = new LoganEntities1();
-            List<HighScore> highScoreList = db.HighScores.Where(x => x.Game == "GrannyFighter2K14").OrderByDescending(x => x.Score).Take(10).ToList();
+            spLoganEntities db = new spLoganEntities();
+            List<HighScore> highScoreList = db.HighScores.Where(x => x.Game == "GrannyFighter2K14").OrderBy(x => x.Score).Take(10).ToList();
 
             foreach (HighScore highScore in highScoreList)
             {
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("{0}. {1} - Only {2} spanks to put that lady in her place - {3}", highScoreList.IndexOf(highScore) + 1, highScore.Name, highScore.Score, highScore.DateCreated.Value.ToShortDateString());
+                Console.WriteLine("{0}. {1} - Only {2} spanks to put that lady in her place - {3}", highScoreList.IndexOf(highScore) + 1, highScore.Name, highScore.Score, highScore.DateCreated);
                 Console.ResetColor();
             }
         }

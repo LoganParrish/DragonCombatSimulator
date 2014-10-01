@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="LoganModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="LoganModelStoreContainer">
-    <EntitySet Name="HighScores" EntityType="LoganModel.Store.HighScores" store:Type="Tables" Schema="dbo" />
+<Schema Namespace="spLoganModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="spLoganModelStoreContainer">
+    <EntitySet Name="HighScores" EntityType="spLoganModel.Store.HighScores" store:Type="Tables" Schema="spLogan" />
   </EntityContainer>
   <EntityType Name="HighScores">
     <Key>
@@ -10,7 +10,7 @@
     <Property Name="HighScoreID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Score" Type="int" />
-    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="DateCreated" Type="nvarchar" MaxLength="30" />
     <Property Name="Game" Type="nvarchar" MaxLength="50" />
   </EntityType>
 </Schema>

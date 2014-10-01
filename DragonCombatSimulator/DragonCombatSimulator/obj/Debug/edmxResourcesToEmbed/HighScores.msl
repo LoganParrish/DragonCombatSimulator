@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="LoganModelStoreContainer" CdmEntityContainer="LoganEntities1">
+  <EntityContainerMapping StorageEntityContainer="spLoganModelStoreContainer" CdmEntityContainer="spLoganEntities">
     <EntitySetMapping Name="HighScores">
-      <EntityTypeMapping TypeName="LoganModel.HighScore">
+      <EntityTypeMapping TypeName="spLoganModel.HighScore">
         <MappingFragment StoreEntitySet="HighScores">
           <ScalarProperty Name="HighScoreID" ColumnName="HighScoreID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
