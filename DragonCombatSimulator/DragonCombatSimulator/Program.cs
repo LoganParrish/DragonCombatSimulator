@@ -127,7 +127,7 @@ it into your lifeless mouth." + "\n\n\n\n\n\n");
                     Console.Clear();
                     Console.WriteLine("You managed to obliterate Mavis! Serves her right for smelling like cough drops and unwashed wrinkle folds." + "\n\n\n\n\n\n");
                     //Console.WriteLine("\n\n\n You brave soul. Do you dare progress to level 2, where the grandmothers are harder, better, faster, and stronger? Enter 'yes' to continue");
-                    AddHighScore(slapCount);
+                    AddHighScore(playerHP);
                     DisplayHighScore();
                     Console.ReadKey();
                     won = true;
@@ -536,7 +536,7 @@ You will take 5 damage every turn for each time she stabs you!");
         static void AddHighScore(int playerScore)
         {
             Console.Clear();
-            Console.WriteLine("Add your name to display how many times you spanked Mavis to the highscores: ");
+            Console.WriteLine("Add your name to the highscores: ");
             string playerName = Console.ReadLine();
 
             spLoganEntities db = new spLoganEntities();
@@ -560,12 +560,12 @@ You will take 5 damage every turn for each time she stabs you!");
             Console.ResetColor();
 
             spLoganEntities db = new spLoganEntities();
-            List<HighScore> highScoreList = db.HighScores.Where(x => x.Game == "GrannyFighter2K14").OrderBy(x => x.Score).Take(10).ToList();
+            List<HighScore> highScoreList = db.HighScores.Where(x => x.Game == "GrannyFighter2K14").OrderByDescending(x => x.Score).Take(10).ToList();
 
             foreach (HighScore highScore in highScoreList)
             {
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("{0}. {1} - Only {2} spanks to put that lady in her place - {3}", highScoreList.IndexOf(highScore) + 1, highScore.Name, highScore.Score, highScore.DateCreated);
+                Console.WriteLine("{0}. {1} had {2} health left! - {3}", highScoreList.IndexOf(highScore) + 1, highScore.Name, highScore.Score, highScore.DateCreated);
                 Console.ResetColor();
             }
         }
