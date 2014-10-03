@@ -69,7 +69,7 @@ Press any key to continue...
             //your life
             int playerHP = 100;
             //enemy life
-            int enemyHP = 200;
+            int enemyHP = 150;
             //how many loofahs you can throw
             int loofaCount = 3;
             //if healCount ever hits 6, you overdose.
@@ -128,8 +128,10 @@ it into your lifeless mouth." + "\n\n\n\n\n\n");
                     Console.WriteLine("Your health remaining was: " + playerHP);
                     Console.WriteLine("You managed to obliterate Mavis! Serves her right for smelling like cough drops and unwashed wrinkle folds." + "\n\n\n\n\n\n");
                     //Console.WriteLine("\n\n\n You brave soul. Do you dare progress to level 2, where the grandmothers are harder, better, faster, and stronger? Enter 'yes' to continue");
-                    //AddHighScore(playerHP);
-                    //DisplayHighScore();
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey();
+                    AddHighScore(playerHP);
+                    DisplayHighScore();
                     Console.ReadKey();
                     won = true;
                     break;
@@ -141,7 +143,7 @@ it into your lifeless mouth." + "\n\n\n\n\n\n");
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n\n\n\n\n____________________________________________________________________________________________");
                 Console.ResetColor();
-                Console.WriteLine("Health Meter : " + playerHP + " / 100" + "                                          " + "Boss Health : " + enemyHP + " / 200");
+                Console.WriteLine("Health Meter : " + playerHP + " / 100" + "                                          " + "Boss Health : " + enemyHP + " / 150");
                 Console.WriteLine("                             Current mainhand accuracy : " + accuracyMain + "%");
                 Console.WriteLine("                                  Loofahs remaining : " + loofaCount);
                 
@@ -534,41 +536,41 @@ You will take 5 damage every turn for each time she stabs you!");
                                         |/                                                            
                                                                                                       ");
         }
-        //static void AddHighScore(int playerScore)
-        //{
-        //    Console.Clear();
-        //    Console.WriteLine("Add your name to the highscores: ");
-        //    string playerName = Console.ReadLine();
+        static void AddHighScore(int playerScore)
+        {
+            Console.Clear();
+            Console.WriteLine("Add your name to the highscores: ");
+            string playerName = Console.ReadLine();
 
-        //    spLoganEntities db = new spLoganEntities();
+            spLoganEntities db = new spLoganEntities();
 
-        //    HighScore newHighScore = new HighScore();
+            HighScore newHighScore = new HighScore();
 
-        //    newHighScore.DateCreated = DateTime.Now.ToString();
-        //    newHighScore.Name = playerName;
-        //    newHighScore.Game = "GrannyFighter2K14";
-        //    newHighScore.Score = playerScore;
+            newHighScore.DateCreated = DateTime.Now.ToString();
+            newHighScore.Name = playerName;
+            newHighScore.Game = "GrannyFighter2K14";
+            newHighScore.Score = playerScore;
 
-        //    db.HighScores.Add(newHighScore);
+            db.HighScores.Add(newHighScore);
 
-        //    db.SaveChanges();
-        //}
-        //static void DisplayHighScore()
-        //{
-        //    Console.ForegroundColor = ConsoleColor.Cyan;
-        //    Console.WriteLine("==================== HIGH SCORES ====================");
-        //    Console.WriteLine("=====================================================\n\n");
-        //    Console.ResetColor();
+            db.SaveChanges();
+        }
+        static void DisplayHighScore()
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("==================== HIGH SCORES ====================");
+            Console.WriteLine("=====================================================\n\n");
+            Console.ResetColor();
 
-        //    spLoganEntities db = new spLoganEntities();
-        //    List<HighScore> highScoreList = db.HighScores.Where(x => x.Game == "GrannyFighter2K14").OrderByDescending(x => x.Score).Take(10).ToList();
+            spLoganEntities db = new spLoganEntities();
+            List<HighScore> highScoreList = db.HighScores.Where(x => x.Game == "GrannyFighter2K14").OrderByDescending(x => x.Score).Take(10).ToList();
 
-        //    foreach (HighScore highScore in highScoreList)
-        //    {
-        //        Console.ForegroundColor = ConsoleColor.White;
-        //        Console.WriteLine("{0}. {1} had {2} health left! - {3}", highScoreList.IndexOf(highScore) + 1, highScore.Name, highScore.Score, highScore.DateCreated);
-        //        Console.ResetColor();
-        //    }
-        //}
+            foreach (HighScore highScore in highScoreList)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("{0}. {1} had {2} health left! - {3}", highScoreList.IndexOf(highScore) + 1, highScore.Name, highScore.Score, highScore.DateCreated);
+                Console.ResetColor();
+            }
+        }
     }
 }
